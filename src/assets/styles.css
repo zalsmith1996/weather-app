@@ -18,6 +18,10 @@ header {
     margin-top: 1rem;
 }
 
+.container {
+    margin: auto;
+}
+
 .card {
     margin: auto;
     flex-direction: column;
@@ -28,9 +32,11 @@ header {
     border-radius: 32px;
 }
 
-.location {
+.location, .errorTitle {
+    width: 100%;
+    text-align: center;
     background-color: black;
     color: white;
     border-radius: 32px;
-    padding: 1rem;
+    padding: 0.2rem;
 }

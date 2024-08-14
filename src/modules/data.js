@@ -1,11 +1,14 @@
-import { displayWeather } from './interface.js';
+import { displayWeather, displayError } from './interface.js';
 
 export async function getData(location) {
-    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=WNAJNPHJ57DA52L2EX2C7AN95&contentType=json`);
-    const weatherData = await response.json();
-
-    displayWeather(processData(weatherData));
+    try {
+        const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=WNAJNPHJ57DA52L2EX2C7AN95&contentType=json`);
+        const weatherData = await response.json();
     
+        displayWeather(processData(weatherData));
+    } catch (error) {
+        displayError(error);
+    };
 };
 
 function processData(data) {
